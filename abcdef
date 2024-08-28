@@ -1,0 +1,459 @@
+---------increes dicreess number,reset--------
+
+   public Button btn1;
+
+    public TextView txt1;
+
+    public Button btnplus;
+
+    public Button btnmine;
+
+    public Button resetbtn;
+
+    public TextView value1;
+
+    public int x = 0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+     btn1=(Button)findViewById(R.id.btn1);
+     txt1=(TextView)findViewById(R.id.txt1);
+
+     btnplus=(Button)findViewById(R.id.btnplus);
+     btnmine=(Button)findViewById(R.id.btnminid);
+     resetbtn=(Button)findViewById(R.id.btnreset);
+     value1=(TextView)findViewById(R.id.numid);
+
+    btn1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            txt1.setText("This is increes degrees opetion");
+
+        }
+    });
+
+    btnplus.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            x++;
+            value1.setText(String.valueOf(x));
+
+        }
+    });
+
+    btnmine.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+            x--;
+            value1.setText(String.valueOf(x));
+
+        }
+    });
+
+    resetbtn.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            x=0;
+            value1.setText(String.valueOf(x));
+            txt1.setText("");
+
+        }
+    });
+	
+---------type text click button then type text will appear-------------
+
+   public EditText txt1;
+
+   public Button btn1;
+
+   public TextView txt2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        txt1=(EditText) findViewById(R.id.txt1);
+        btn1=(Button) findViewById(R.id.btn1);
+        txt2=(TextView) findViewById(R.id.txt2);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String enteredText = txt1.getText().toString();
+                TextView.setText(enteredText);
+
+            }
+        });
+		
+		
+-------------currancy converter-----
+
+ public EditText lkrtext;
+
+  public TextView usdText;
+
+  public Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        lkrtext=(EditText) findViewById(R.id.lkrtext);
+        usdText=(TextView) findViewById(R.id.usdtext);
+        btn=(Button) findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            if (lkrtext.getText().toString().equals("")){
+                usdText.setText("Invalide enter number");
+                usdText.setTextColor(Color.RED);
+            }
+            else {
+
+                int userInput = Integer.parseInt(lkrtext.getText().toString());
+                double result = userInput * 200.00;
+                usdText.setText(Double.toString(result));
+                usdText.setTextColor(Color.GREEN);
+            }
+            }
+        });
+		
+
+------------ calculator -----------
+
+    public EditText txt1;
+
+    public EditText txt2;
+
+    public Button add;
+
+    public Button sub;
+
+    public Button multi;
+
+    public Button devide;
+
+    public Button reset;
+
+    public TextView txt3;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        txt1=(EditText) findViewById(R.id.txt1);
+        txt2=(EditText) findViewById(R.id.txt2);
+
+        add=(Button) findViewById(R.id.addid);
+        sub=(Button) findViewById(R.id.subid);
+        multi=(Button) findViewById(R.id.mulid);
+        devide=(Button) findViewById(R.id.divideid);
+        reset=(Button) findViewById(R.id.resetid);
+        txt3=(TextView) findViewById(R.id.txt3);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+              int n1 = Integer.parseInt(txt1.getText().toString());
+              int n2 = Integer.parseInt(txt2.getText().toString());
+              double result = n1+n2;
+              txt3.setText(Double.toString(result));
+
+            }
+        });
+
+        sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int n1 = Integer.parseInt(txt1.getText().toString());
+                int n2 = Integer.parseInt(txt2.getText().toString());
+                double result = n1-n2;
+                txt3.setText(Double.toString(result));
+
+            }
+        });
+
+        multi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int n1 = Integer.parseInt(txt1.getText().toString());
+                int n2 = Integer.parseInt(txt2.getText().toString());
+                double result = n1 * n2;
+                txt3.setText(Double.toString(result));
+            }
+        });
+
+        devide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                int n1= Integer.parseInt(txt1.getText().toString());
+                int n2= Integer.parseInt(txt2.getText().toString());
+                double result = n1 / n2 ;
+                txt3.setText(Double.toString(result));
+            }
+        });
+
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+               txt1.setText("");
+               txt2.setText("");
+               txt3.setText("");
+
+            }
+        });
+
+
+-----------------seek bar---------
+
+
+     public TextView result;
+
+     public SeekBar seekbar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        result = (TextView) findViewById(R.id.txt1);
+        seekbar = (SeekBar) findViewById(R.id.seekBar);
+
+       seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+           @Override
+           public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+               result.setText("Marks:"+ seekBar.getProgress());
+               result.setVisibility(View.VISIBLE);
+
+               if(seekBar.getProgress() <= 6) {
+                   result.setTextColor(Color.GREEN);
+               }
+               else {
+                   result.setTextColor(Color.RED);
+               }
+
+           }
+
+           @Override
+           public void onStartTrackingTouch(SeekBar seekBar) {
+
+           }
+
+           @Override
+           public void onStopTrackingTouch(SeekBar seekBar) {
+
+           }
+       });
+	   
+--------------discount app------------
+
+    public EditText amount;
+
+    public SeekBar seekBar;
+
+    public TextView discount;
+
+    public TextView discountprice;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        amount= (EditText) findViewById(R.id.price);
+        seekBar= (SeekBar) findViewById(R.id.seekBar3);
+        discount= (TextView) findViewById(R.id.discount);
+        discountprice= (TextView) findViewById(R.id.discountprice);
+
+    seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+        @Override
+        public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+            discount.setText(seekBar.getProgress() + "%");
+            Double input = Double.parseDouble(amount.getText().toString());
+            Double num = input - ((input - seekBar.getProgress())/100);
+            discountprice.setText(Double.toString(num));
+
+            if(seekBar.getProgress() > 75 ){
+                Double val = ((input * 75)/100);
+                discount.setText("75%");
+                discountprice.setText(Double.toString(val));
+            }
+
+            else {
+                discount.setTextColor(Color.RED);
+            }
+
+        }
+
+        @Override
+        public void onStartTrackingTouch(SeekBar seekBar) {
+
+        }
+
+        @Override
+        public void onStopTrackingTouch(SeekBar seekBar) {
+
+        }
+    });
+	
+-----------radio button currancy converter----------
+
+    public EditText amount;
+
+    public RadioButton LKR;
+
+    public RadioButton USD;
+
+    public Button btn1;
+
+    public TextView price;
+
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+    amount= (EditText) findViewById(R.id.amount);
+    LKR=(RadioButton) findViewById(R.id.lkr);
+    USD=(RadioButton) findViewById(R.id.usd);
+    btn1= (Button) findViewById(R.id.btn1);
+    price= (TextView) findViewById(R.id.txt2);
+
+
+    btn1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+
+            if(LKR.isChecked()) {
+
+                Double num = Double.parseDouble(amount.getText().toString());
+                Double result = num * 200.00;
+                price.setText(Double.toString(result));
+            }
+
+        else {
+            Double num = Double.parseDouble(amount.getText().toString());
+            Double result = num / 200.00;
+            price.setText(Double.toString(result));
+        }}
+    });
+
+--------------- intent pass value  ---------
+
+mainActivity.........
+
+    public Button btn;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btn=(Button) findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,MainActivity2.class);
+
+                intent.putExtra("name","ch");
+                intent.putExtra("age",26);
+
+                startActivity(intent);
+            }
+        });
+Second activity........
+
+    public TextView txt1;
+    public TextView txt2;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        Bundle msg = getIntent().getExtras();
+
+       txt1=(TextView) findViewById(R.id.txt1);
+       txt2=(TextView) findViewById(R.id.txt2);
+
+       if (msg != null){
+           String name = msg.getString("name");
+           int age = msg.getInt("age");
+           txt1.setText("Name: "+ name);
+           txt2.setText( "Age:"+ age);
+       }
+	   
+-------------
+17 Past paper Q2
+currency converter
+-----------------------
+
+    private EditText amount;
+    private RadioButton P1;
+    private RadioButton P2;
+    private Button convert;
+    private TextView result;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        amount = (EditText) findViewById(R.id.k1);
+        P1 = (RadioButton) findViewById(R.id.k2);
+        P2 = (RadioButton) findViewById(R.id.k3);
+        convert = (Button) findViewById(R.id.btn4);
+        result = (TextView) findViewById(R.id.k5);
+
+        convert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String a = amount.getText().toString();
+                if (a.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Hey fool", Toast.LENGTH_SHORT).show();
+                } else {
+                    double x = Double.parseDouble(a);
+                    if (P1.isChecked()) {
+                        double y = x * 300;
+                        result.setText(String.valueOf(y));
+                    }
+                    if (P2.isChecked()) {
+                        double z = x / 300;
+                        result.setText(String.valueOf(z));
+                    }
+                }
+            }
+        });
+    }
+}
+
+
+ 
